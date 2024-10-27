@@ -72,6 +72,7 @@ qrfontain --input big.txt --output  big.webm
 I made a GUI to extract animated QR codes from your desktop.      
 Install Pyside6 ```pip install pyside6``` and  run ```python gui_receiver.py```
 
+Check the video above: 
 ![Screencast](https://github.com/dridk/qrfontain/raw/refs/heads/main/gui_receiver.webm)
 
 
