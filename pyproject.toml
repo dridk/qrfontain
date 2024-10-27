@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling", "build", "twine"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "qrfontain"
+version = "0.1.0"
+authors = [{name="Sacha Schutz", email="sacha.schutz@pm.me"}]
+description = "Transferring data through a sequence of QR codes using a fountain code"
+readme = "README.md"
+requres-python = ">=3.8"
+keywords = ["qrcode", "fontain", "data", "transfer"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    'qrcode >= 0.8',
+    'lt-code>=0.3.3',
+    'pillow >= 11.0.0',
+    'moviepy >= 1.0.3',
+    'tqdm >= 4.66.5',
+    'zbarlight >= 3.0.0'
+]
+
+[project.optional-dependencies]
+gui = ["PySide6"]
+
+
+[project.urls]
+Homepage = "https://github.com/dridk/qrfontain"
+Issues = "https://github.com/dridk/qrfontain/issues"
+
+[project.scripts]
+qrfontain-encoder = "qrfontain.__main__:main_cli"
+
+# [project.gui-scripts]
+# qrfontain-decoder = 
