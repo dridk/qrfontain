@@ -19,7 +19,7 @@ classifiers = [
 dependencies = [
     'qrcode >= 0.8',
     'lt-code>=0.3.3',
-    'pillow >= 11.0.0',
+    'pillow == 10.4.0',
     'moviepy >= 1.0.3',
     'tqdm >= 4.66.5',
     'zbarlight >= 3.0.0'

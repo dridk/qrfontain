@@ -49,7 +49,6 @@ def data_from_qrcode(images: Generator[Image, None, None]) -> io.BytesIO:
             payload = io.BytesIO(data)
             header = lt.decode._read_header(payload)
             block = lt.decode._read_block(header[1], payload)
-
             decoder.consume_block((header, block))
 
             if decoder.is_done():
