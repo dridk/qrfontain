@@ -44,10 +44,8 @@ def data_from_qrcode(images: Generator[Image, None, None]) -> io.BytesIO:
 
     decoder = lt.decode.LtDecoder()
     for image in images:
-        data = zbarlight.scan_codes(["qrcode"], image)
+        data = decode_qrcode(image)
         if data:
-            data = data[0].decode()
-            data = base64.b64decode(data)
             payload = io.BytesIO(data)
             header = lt.decode._read_header(payload)
             block = lt.decode._read_block(header[1], payload)
@@ -58,6 +56,16 @@ def data_from_qrcode(images: Generator[Image, None, None]) -> io.BytesIO:
                 break
 
     return decoder.bytes_dump()
+
+
+def decode_qrcode(image: Image) -> bytes:
+    data = zbarlight.scan_codes(["qrcode"], image)
+    if data:
+        data = data[0].decode()
+        data = base64.b64decode(data)
+        return data
+
+    return None
 
 
 def file_to_qrcode(filename: str, **kwargs) -> Generator[Image, None, None]:
