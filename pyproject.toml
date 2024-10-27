@@ -34,7 +34,6 @@ Homepage = "https://github.com/dridk/qrfontain"
 Issues = "https://github.com/dridk/qrfontain/issues"
 
 [project.scripts]
-qrfontain-encoder = "qrfontain.__main__:main_cli"
+qrfontain= "qrfontain.__main__:main_cli"
 
-# [project.gui-scripts]
-# qrfontain-decoder = 
+
