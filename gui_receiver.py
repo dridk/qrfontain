@@ -126,6 +126,8 @@ class MainWindow(QWidget):
         self.is_qrcode = False
         self.decoder = None
 
+        # elapsed timer
+        self.duration_timer = QElapsedTimer()
         # Preview
         self.preview_widget = QLabel()
         self.preview_widget.setAlignment(Qt.AlignCenter)
@@ -171,6 +173,7 @@ class MainWindow(QWidget):
 
         self.decoder = lt.decode.LtDecoder()
         self.is_transmission = True
+        self.duration_timer.start()
 
     def show_message(self):
 
@@ -207,8 +210,8 @@ class MainWindow(QWidget):
             self.progress_bar.setValue(len(self.decoder.block_graph.checks))
 
             if self.decoder.is_done():
-                print("Done")
                 self.is_transmission = False
+                print("Done in ", self.duration_timer.elapsed())
                 self.finished.emit()
 
         self.show_message()
@@ -223,7 +226,7 @@ class MainWindow(QWidget):
         return Image.open(io.BytesIO(buffer.data()))
 
     def on_finished(self):
-        file, _ = QFileDialog.getSaveFileName(self, "Save file ", QDir.homePath())
+        file, _ = QFileDialog.getSaveFileName(self, "Save file ", "/tmp/qrfontain")
 
         if not file:
             return
