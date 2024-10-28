@@ -76,5 +76,8 @@ Check the video above:
 ![Screencast](https://github.com/dridk/qrfontain/raw/refs/heads/main/gui_receiver.webm)
 
 
+## Similar project 
+- [https://github.com/digitalbazaar/qram](https://github.com/digitalbazaar/qram)
+- [https://github.com/divan/txqr](https://github.com/divan/txqr)
 
 
